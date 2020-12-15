@@ -22,9 +22,13 @@ body{
     align-items: center;
 }
 
-.logo img{
+.logo {
     max-height: 150px;
-    width: auto;
+}
+.logo img{
+    height: 150px;
+    width: 150px;
+    
 }
 
 .nav-item{

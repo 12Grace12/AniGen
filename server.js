@@ -1,7 +1,8 @@
 /* DECLARE MODULES and CONSTANTS ------------- */
 const express = require('express')
       b_parse = require('body-parser')
-      path    = require('path');
+      path    = require('path')
+      rand    = require('random-key');
 
 const app     = express();
 
@@ -31,21 +32,18 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            res.send(req.body["username"]);
-            res.send(req.body["password"]);
+            var user = req.body["username"];
+            var pass = req.body["password"];
+            var rkey = rand.generate(7);
+
+            res.send(user + " " + pass + " " + rkey);
+
+            const collection = database.collection("users");
+            
         })
 
         app.post('/user-lists', function(req, res) {
             res.send(req.body);
         })
-
-        // app.post('', function(req, res) {
-        //     // Create document including username:password
-        //     console.log(req.body["username"])
-
-        //     // Add document to MongoDB
-
-        //     // Respond with home page and a registration success alert
-        // })
     })
     .catch(console.error)

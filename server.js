@@ -31,7 +31,7 @@ MongoClient.connect(mongo_uri, {
             res.location("http://animegen.herokuapp.com/");
         })
 
-        app.post('/register', function(req, res) {
+        app.post('http://animegen.herokuapp.com/register', function(req, res) {
             // Create document including username:password
             console.log(req.body["username"])
 

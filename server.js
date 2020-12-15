@@ -34,16 +34,15 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            var mail = req.body["email"];
+            var mail  = req.body["email"];
             var rkey  = rand.generate(7);
             const doc = { email : mail, key : rkey };
-            collection.insertOne(doc);
+            users.insertOne(doc);
             
         })
 
         app.post('/user-lists', function(req, res) {
             res.send(req.body);
         })
-
     })
     .catch(console.error)

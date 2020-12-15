@@ -15,19 +15,19 @@
 		<br>
 
 		<div class="savedtop">
-			<form method="get" class="login-form" action="https://animegen.herokuapp.com/register">
+			<form name="login-form" action="/register" method="post" class="login-form">
 				<p>
 					<label>
 						<span class="login-label">Username:</span>
 						<br>
-						<input type="text" id="login" name="username" placeholder="Enter your new username..." required autocomplete="on">
+						<input type="text" name="username" id="login" placeholder="Enter your new username..." required autocomplete="on">
 					</label>
 				</p>
 				<p>
 					<label>
 						<span class="login-label">Password:</span>
 						<br>
-						<input type="text"  name="password" placeholder="Enter your new password..." required autocomplete="on">
+						<input type="text" name="password" placeholder="Enter your new password..." required autocomplete="on">
 					</label>
 				</p>
 				<div><input type="submit" value="Login"></div>

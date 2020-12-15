@@ -9,7 +9,7 @@ app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 app.use(b_parse.urlencoded({ extended: true })); 
 
-var port = process.env.PORT || "https://animegen.herokuapp.com/register";
+var port = process.env.PORT || 3000;
 
 /* CONNECT TO MONGO -------------------------- */
 const mongo_uri = "mongodb+srv://dbUser:dbUserPassword@comp-20.yu1ib.mongodb.net/aniGen?retryWrites=true&w=majority";
@@ -23,11 +23,12 @@ MongoClient.connect(mongo_uri, {
 
         /* CRUD HANDLER ---------------------- */
         app.listen(port, function() {
-            console.log('Listening on 3000');
+            console.log('Listening on ' + port);
         })
 
         app.get('/', function(req, res) {
-            res.sendFile(path.resolve("server-main.html"));
+            //res.sendFile(path.resolve("server-main.html"));
+            res.location("http://animegen.herokuapp.com/");
         })
 
         app.post('/register', function(req, res) {

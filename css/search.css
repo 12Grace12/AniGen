@@ -1,0 +1,400 @@
+.searchtop{
+    margin: 0px 100px;
+    padding: 1.5em 4em;
+    font-size: 25px;
+    border: 0.02em solid rgb(220, 220, 220);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4em;
+    box-sizing: border-box;
+}
+
+.searchbar select{
+    display: block;
+    padding: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border-color: white;
+    width: 400px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.search-sub{
+    font-size: 20px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 14px;
+    background-color: #59a891;
+    color: white;
+
+}
+
+/*other stuff below*/
+
+section.web-left, 
+section.web-right {
+    /* float: left; */
+    display: inline-block;
+    position: fixed;
+}
+
+section.web-middle {
+
+    display: inline-block;
+    margin-left: 12%;
+    padding-left: 299px;
+} 
+
+section.web-right {
+    right: 0;
+}
+
+
+
+section.web-left .col-4 {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 4px;
+}
+
+section.web-left {
+    width: 12%;
+    height: 100vh;
+    background-color: #FAFAFA;
+    padding: 0 16px;
+}
+
+.btn-genre {
+    display: inline-block;
+    width: 10em;
+    height: 3em;
+    
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #623BFF;
+    border: 1px solid #623BFF;
+    text-decoration: none;
+    margin: 2px 24px;
+    transition: .2s ease-in;
+    
+}
+
+
+
+
+
+.push{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    text-align: center;
+    background-color: rgb(233, 217, 241);
+    width: 700px;
+    height: 200px;
+   
+    margin: auto;
+    /* margin-top: 30px; */
+    margin-left: 300px;
+    
+}
+section.web-left .col-4 {
+    padding: 0;
+    margin: 0 4px;
+}
+
+
+
+section.web-left .genre h2 {
+    font-family: 'gsm';
+    font-size: 18px;
+    color: #333;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    
+}
+
+.genre .btn-genre {
+    display: inline-block;
+    width: 10em;
+    height: 3em;
+    
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #623BFF;
+    border: 1px solid #623BFF;
+    text-decoration: none;
+    margin: 2px 24px;
+    transition: .2s ease-in;
+    
+}
+
+.btn-genre:hover {
+    background-color: #623BFF;
+    color: #FAFAFA !important;
+    cursor: pointer;
+}
+
+.btn-genre-active {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    background-color: #623BFF;
+    color: #FAFAFA !important;
+    text-decoration: none;
+}
+
+.genre .btn-thx:hover {
+    background-color: rgb(204, 192, 253);
+    border: 1px solid #623BFF;
+}
+
+section.web-middle {
+    width: 62%;
+    height: 100vh;
+    padding: 42px;
+    background-color: #F5F5F5;
+}
+
+.ctrl{
+    padding:0;
+    height: 15px;
+}
+
+
+
+section.web-middle {
+    display: inline-block;
+    
+    width: 80%;
+    height: 80%;
+    margin-left: 15%;
+    margin-bottom: 5%px;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+}
+
+    .season {
+        margin: 0;
+    } 
+
+    #title-season {
+        font-family: 'gm';
+        font-size: 28px;
+        color: #333;
+    }
+
+    section.web-middle .link-season {
+        text-decoration: none;
+        margin-right: 42px;
+        margin-top: 6px;
+        font-size: 16px;
+        color: #999;
+        transition: .2s ease-in;
+    }
+
+    .link-season hr {
+        width: 10px;
+        border-radius: 20px;
+        margin: 6px auto;
+        background: transparent;
+        border: 1.6px solid #232323;
+    }
+
+    .hr-none {
+        display: none;
+    }
+
+    .link-season:hover {
+        color: #232323 !important;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .link-season.link-season-active {
+        color: #232323 !important;
+        font-family: 'gm';
+    }
+
+    .result {
+        margin-top: 42px;
+        margin-bottom: 20px;
+    }
+
+    .result p {
+        font-size: 14px;
+        color: #555;
+        margin: 0 0 6px 0;
+    }
+
+    .result h1 {
+        font-family: 'gm';
+        font-size: 24px;
+        margin: 0;
+        text-align: left;
+        color: #333;
+    }
+
+    .content .img-poster {
+        width: 100%;
+        height: 240px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .content h3 {
+        font-family: 'gm';
+        font-size: 16px;
+        color: #333;
+        margin-top: 12px;
+        height: 42px;
+        overflow: hidden;
+    }
+
+section.web-right {
+    margin-top: 5px;
+    position: fixed;
+    width: 60%;
+    height: 20vh;
+    background-color: #9850F6;
+    border-radius: 32px 0 0 32px;
+    padding: 42px;
+}
+
+/* .box-input {
+    margin-top: 10px;
+    margin: auto;
+} */
+
+.box-input input {
+    margin-left: 10em;
+    margin-bottom: 2em;
+   
+    width: 60%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #fff;
+    border: none;
+    outline: none;
+    color: #555;
+    font-family: 'gm';
+}
+
+    .web-right h2 {
+        font-family: 'gm';
+        font-size: 24px;
+        color: #fafafa;
+        margin-bottom: 12px;
+    }
+
+    .box-input input::placeholder {
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .top-anime {
+        margin-top: 42px;
+    }
+
+    .top-anime h2 {
+        margin-bottom: 26px;
+    }
+ 
+    .top-anime .col-md-8 {
+        padding: 0;
+    } 
+
+    .top-anime .img-top {
+        width: 100%;
+        height: 100px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .top-anime h3 {
+        font-family: 'rr';
+        font-size: 14px;
+        color: #f0f0f0;
+    }
+
+    .top-anime .subdata p {
+        font-size: 12px;
+        color: #ddd;
+        margin: 0;
+    }
+
+    .top-anime .subdata p span {
+        font-size: 12px;
+        color: #eee;
+        margin: 0;
+    }
+
+    .top-anime .subdata .row  .col-md-7{
+        margin: 0;
+    }
+
+    .top-content .box-content {
+        margin-bottom: 12px;
+    }
+
+    .overflow p {
+        font-size: 12px;
+        font-family: 'gm';
+        line-height: 14px;
+        color: #555;
+        margin-top: 6px;
+        margin-bottom: 0;
+    }
+
+    
+    /* Detail */
+
+    h3.title-detail {
+        font-family: 'gm';
+        font-size: 28px;
+        margin: 0;
+        text-align: left;
+        color: #333;
+    }
+
+    .detail-anime p {
+        font-size: 16px;
+        color: #999;
+        margin: 6px 0;
+    }
+
+    .detail-anime p span {
+        font-size: 16px;
+        color: #555;
+        margin: 0;
+    }
+
+    .detail-anime .preview {
+        margin-top: 32px;
+    }
+
+    .detail-anime .embed-responsive {
+        width: 60%;
+        margin: 12px auto;
+        border-radius: 6px;
+    }
+
+    .detail-anime img {
+        border-radius: 6px;
+    }
+
+    .detail-anime .synopsis {
+        max-height: 180px;
+        overflow: hidden;
+        margin-top: 16px;
+    }
+
+    section.web-middle .box-input {
+        display: none;
+    }

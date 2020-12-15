@@ -1,0 +1,137 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #b1ded9;
+}
+
+
+.navbar{
+    position: fixed;
+    z-index: 999;
+    background-color: white;
+    transition: width 600ms ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.nav-ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+.logo img{
+    max-height: 150px;
+    width: auto;
+}
+
+.nav-item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.nav-item a{
+    color: #275a63;
+}
+.nav-item a:link, a:active{
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    text-decoration: none;
+    text-shadow: 2px 2px #9bc9d1;
+}
+
+.other{
+    margin-left: 9.5em;
+    margin-right: 5em;
+    padding-top: 5em; 
+}
+
+.top{
+    margin: 0px 100px;
+    padding: 1.5em 4em;
+    font-size: 25px;
+    border: 0.02em solid rgb(220, 220, 220);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4em;
+    box-sizing: border-box;
+
+}
+.top h1{
+    font-family: 'Bungee', cursive;
+    margin: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0em;
+    line-height: 50px;
+}
+.top h5{
+    margin: 0px;
+    padding-top: -4em;
+    font-style: italic;
+    font-size: 18px;
+    color: #616161;
+    
+}
+
+.mid{
+    margin: 30px 100px;
+    padding: 2em 5em;
+    font-size: 20px;
+    border: 0.02em solid rgb(220, 220, 220);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4em;
+    box-sizing: border-box;
+}
+
+.mid a{
+    display: inline-block; 
+    background-color: #59a891;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.mid a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+}
+
+
+
+
+/* Small screens */
+@media only screen and (max-width: 800px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-ul {
+        flex-direction: row;
+        width:100%;
+
+    }
+  
+    .nav-item {
+
+        width: 30%;
+        justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  

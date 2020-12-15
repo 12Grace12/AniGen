@@ -1,0 +1,42 @@
+.savedtop{
+    margin: 0px 100px;
+    padding: 1.5em 4em;
+    font-size: 25px;
+    border: 0.02em solid rgb(220, 220, 220);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4em;
+    box-sizing: border-box;
+}
+.login-form{
+    vertical-align: baseline;
+    text-align: left;
+    
+}
+.login-form span{
+    font-size: 23px;
+}
+
+form{
+    display: block;
+}
+
+form input[type=text]{
+    padding: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border-color: white;
+    width: 400px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+form input[type=submit]{
+    font-size: 20px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 14px;
+    background-color: #59a891;
+    color: white;
+
+}

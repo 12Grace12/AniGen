@@ -20,8 +20,6 @@ MongoClient.connect(mongo_uri, {
     useUnifiedTopology : true  })
     .then(client => {
         const database = client.db('aniGen');
-        const users    = database.collection("users");
-        const lists    = database.collection("aniLists");
         console.log("Connected to Mongodb!");
 
         /* CRUD HANDLER ---------------------- */
@@ -34,9 +32,10 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            var mail  = req.body["email"];
-            var rkey  = rand.generate(7);
-            const doc = { email : mail, key : rkey };
+            const users = database.collection("users");
+            var mail    = req.body["email"];
+            var rkey    = rand.generate(7);
+            const doc   = { email : mail, key : rkey };
             users.insertOne(doc);
             
         })

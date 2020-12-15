@@ -20,6 +20,8 @@ MongoClient.connect(mongo_uri, {
     useUnifiedTopology : true  })
     .then(client => {
         const database = client.db('aniGen');
+        const users    = database.collection("users");
+        const lists    = database.collection("aniLists");
         console.log("Connected to Mongodb!");
 
         /* CRUD HANDLER ---------------------- */
@@ -32,15 +34,14 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            const collection = database.collection("users");
-            var mail         = req.body["email"];
-            if ( userExists(mail, collection) ) {
+            var mail = req.body["email"];
+            if ( userExists(mail, users) ) {
                 alert("Email already exists!");
                 res.sendFile(path.resolve("register.html"));
             }
 
-            var rkey = rand.generate(7);
-            const doc        = { email : mail, key : rkey };
+            var rkey  = rand.generate(7);
+            const doc = { email : mail, key : rkey };
             collection.insertOne(doc);
             
         })
@@ -48,15 +49,14 @@ MongoClient.connect(mongo_uri, {
         app.post('/user-lists', function(req, res) {
             res.send(req.body);
         })
+
+        /* HELPER FUNCTIONS -------------------------- */
+        function userExists(user, coll) {
+            return true;
+        }
+
+        function keyExists(key) {
+            //blah 
+        }
     })
     .catch(console.error)
-
-/* HELPER FUNCTIONS -------------------------- */
-
-function userExists(user, coll) {
-    return true;
-}
-
-function keyExists(key) {
-    //blah 
-}

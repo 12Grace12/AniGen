@@ -27,17 +27,16 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.get('/', function(req, res) {
-            //res.sendFile(path.resolve("server-main.html"));
-            res.location("http://animegen.herokuapp.com/");
+            res.sendFile(path.resolve("server-main.html"));
         })
 
-        app.post('http://animegen.herokuapp.com/register', function(req, res) {
-            // Create document including username:password
-            console.log(req.body["username"])
+        // app.post('', function(req, res) {
+        //     // Create document including username:password
+        //     console.log(req.body["username"])
 
-            // Add document to MongoDB
+        //     // Add document to MongoDB
 
-            // Respond with home page and a registration success alert
-        })
+        //     // Respond with home page and a registration success alert
+        // })
     })
     .catch(console.error)

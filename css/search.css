@@ -139,6 +139,9 @@ section.web-left {
     
 }
 
+.search-sub{
+    text-decoration: none;
+}
 
 .push{
     display: flex;

@@ -32,12 +32,14 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            var mail = req.body["email"];
-            var rkey = rand.generate(7);
-
-            res.send(mail + " " + rkey);
-
             const collection = database.collection("users");
+            var mail         = req.body["email"];
+            if ( userExists(mail, collection) ) {
+                alert("Email already exists!");
+                res.sendFile(path.resolve("register.html"));
+            }
+
+            var rkey = rand.generate(7);
             const doc        = { email : mail, key : rkey };
             collection.insertOne(doc);
             
@@ -51,8 +53,8 @@ MongoClient.connect(mongo_uri, {
 
 /* HELPER FUNCTIONS -------------------------- */
 
-function userExists(username) {
-    //blah
+function userExists(user, coll) {
+    return true;
 }
 
 function keyExists(key) {

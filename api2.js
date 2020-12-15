@@ -40,18 +40,51 @@ function animeSeason(season) {
     });
 
 }
-
 // Genre Function 
 function animeGenre(id) {
+
     $('#middle-content').empty();
+
     $.getJSON('https://api.jikan.moe/v3/genre/anime/'+ id, function(data) {
+        
         let result = data.anime;
-        // console.log(result);
-        var ani = [];
+        console.log(result);
 
         $.each(result, function(i, data) {
+            if( i >= 32 ) {
+                return;
+            }
+
+            $('#middle-content').append(`
+            <div class="col-md-3 col-6 mb-4">
+                <div id="detail-anime" data-id="`+ data.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
+                    background-image: url(`+ data.image_url +`);
+                    background-position: center;
+                    background-size: cover;
+                ">
+                </div>
+                <h3>`+ data.title +`</h3>
+            </div>
+            `);
+        });
+
+    });
+
+}
+ 
+
+
+// Genre Function 
+// function animeGenre(id) {
+//     $('#middle-content').empty();
+//     $.getJSON('https://api.jikan.moe/v3/genre/anime/'+ id, function(data) {
+//         let result = data.anime;
+//         // console.log(result);
+//         var ani = [];
+
+//         $.each(result, function(i, data) {
             
-            ani.push(data);
+//             ani.push(data);
            
 
 
@@ -59,44 +92,44 @@ function animeGenre(id) {
             
             
 
-            if( i >= 32 ) {
-                return;
-            }
-            // $('#middle-content').append(`
-            // <div class="col-md-3 col-6 mb-4">
-            //     <div id="detail-anime" data-id="`+ data.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
-            //         background-image: url(`+ data.image_url +`);
-            //         background-position: center;
-            //         background-size: cover;
-            //     ">
-            //     </div>
-            //     <h3>`+ data.title +`</h3>
-            // </div>
-            // `);
-        });
+//             if( i >= 32 ) {
+//                 return;
+//             }
+//             // $('#middle-content').append(`
+//             // <div class="col-md-3 col-6 mb-4">
+//             //     <div id="detail-anime" data-id="`+ data.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
+//             //         background-image: url(`+ data.image_url +`);
+//             //         background-position: center;
+//             //         background-size: cover;
+//             //     ">
+//             //     </div>
+//             //     <h3>`+ data.title +`</h3>
+//             // </div>
+//             // `);
+//         });
 
 
-        x = random_item(ani);
-        $('#middle-content').append(`
-            <div class="col-md-3 col-6 mb-4">
-                <div id="detail-anime" data-id="`+ x.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
-                    background-image: url(`+ x.image_url +`);
-                    background-position: center;
-                    background-size: cover;
-                ">
-                </div>
-                <h3>`+ x.title +`</h3>
-            </div>
-            `);
+//         x = random_item(ani);
+//         $('#middle-content').append(`
+//             <div class="col-md-3 col-6 mb-4">
+//                 <div id="detail-anime" data-id="`+ x.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
+//                     background-image: url(`+ x.image_url +`);
+//                     background-position: center;
+//                     background-size: cover;
+//                 ">
+//                 </div>
+//                 <h3>`+ x.title +`</h3>
+//             </div>
+//             `);
         
 
 
-        console.log(ani)
-        console.log(x)
+//         console.log(ani)
+//         console.log(x)
 
-    });
+//     });
 
-}
+// }
 
 
 // Upcoming Function
@@ -330,8 +363,26 @@ $('.btn-genre').on('click', function() {
         case 'sports':
           id = 30;
           break;
-        case 'school':
-        id = 23;
+        case 'shounen':
+        id = 27;
+        break;
+        case 'mecha':
+        id = 18;
+        break;
+        case 'thriller':
+        id = 41;
+        break;
+        case 'harem':
+        id = 35;
+        break;
+        case 'slice of life':
+        id = 36;
+        break;
+        case 'psychological':
+        id = 40;
+        break;
+        case 'drama':
+        id = 8;
         break;
   
 
@@ -343,6 +394,8 @@ $('.btn-genre').on('click', function() {
    
 
 });
+
+
 
 $('.link-season').on('click', function() {
     $('.btn-genre').removeClass('btn-genre-active');

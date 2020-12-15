@@ -2,7 +2,7 @@
 var d = new Date();
 var year = d.getFullYear();
 
-$('#title-season').html('Anime Season '+ year);
+$('#title-season').html('Anime');
 
 if ( $(window).width() >= 1024 ) {
     $('#input-mobile').html('')

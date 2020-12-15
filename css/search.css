@@ -140,7 +140,6 @@ section.web-left {
 }
 
 
-
 .push{
     display: flex;
     justify-content: space-around;
@@ -155,9 +154,18 @@ section.web-left {
     height: 275px;
     margin: 0px 100px;
     padding: 1.5em;
-
     
 }
+
+.push h1{
+    line-height: 40%;
+    font-family: 'Bungee', cursive;
+}
+
+.push h5{
+    color: #616161;
+}
+
 section.web-left .col-4 {
     padding: 0;
     margin: 0 4px;
@@ -228,7 +236,7 @@ section.web-middle {
 }
 
 .ctrl{
-    padding-top: 20px;
+    padding-top: 15px;
 
 }
 
@@ -241,16 +249,22 @@ section.web-middle {
     } 
 
     #title-season {
-        
-        font-size: 28px;
+        font-family: 'Bungee', cursive;
+
         color: #333;
+    }
+
+    .row-season{
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 70px;
     }
 
     section.web-middle .link-season {
         text-decoration: none;
         margin-right: 42px;
         margin-top: 6px;
-        font-size: 16px;
+        font-size: 20px;
         color: #999;
         transition: .2s ease-in;
     }
@@ -278,24 +292,7 @@ section.web-middle {
         
     }
 
-    .result {
-        margin-top: 42px;
-        margin-bottom: 20px;
-    }
-
-    .result p {
-        font-size: 14px;
-        color: #555;
-        margin: 0 0 6px 0;
-    }
-
-    .result h1 {
-        
-        font-size: 24px;
-        margin: 0;
-        text-align: left;
-        color: #333;
-    }
+ 
 
     .content .img-poster {
         width: 20   0px;

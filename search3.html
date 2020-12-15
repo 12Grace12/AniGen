@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AniGen</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css">
+        <link href="css/search.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="./images/logo.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <script src="api.js"></script>
+        <style>
+            body{
+                margin: 0px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <ul class="nav-ul">
+                <li class="logo">
+                    <a href="/index" class="logo-link">
+                        <img src="./images/logo.png">                  
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/search" class="search-link">
+                        <span class="nav-txt">search</span>
+                
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/shows" class="saved-link">
+                        <span class="nav-txt">shows</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/saved" class="saved-link">
+                        <span class="nav-txt">saved</span>
+                    </a>
+                </li>
+
+                <li class="nav-item" id="logout-link">
+                    <a href="/logout">logout</a>
+                </li>
+            </ul>    
+        </nav>
+
+        <div class="other">
+             <div class="searchtop">
+                <h3>Choose a genre, and AniGen will generate one for you!</h3>
+                <div class="searchbar-container">
+                    <div class="searchbar">
+                        <select name="genre" class="genre">
+                            <option value="null">Choose a genre...</option>
+                            <option value="action" id="1">Action</option>
+                            <option value="adventure" id="2">Adventure</option>
+                            <option value="comedy" id="4">Comedy</option>
+                            <option value="fantasy" id="10">Fantasy</option>
+                            <option value="game" id="11">Game</option>
+                            <option value="horror" id="14">Horror</option>
+                            <option value="romance" id="22">Romance</option>
+                            <option value="sports" id="30">Sports</option>
+                            <option value="school" id="23">School</option>
+                        </select>
+                    </div>
+                    <br>
+                   
+                </div>
+             </div>
+
+
+        </div>
+        <section class="web-middle">
+            <h2 id="title-season" ></h2>
+            <div class="row season">
+                <span class="link-season">Summer</span>
+                <span class="link-season">Spring</span>
+                <span class="link-season">Fall</span>
+                <span class="link-season">Winter</span>
+            </div>
+    
+            <div class="box-input" id="input-mobile">
+                <h2>Find Anime</h2>
+                <input type="text" placeholder="Search..." id="search-input" autocomplete="off">
+            </div>
+    
+            <div class="result">
+                <p>Result of</p>
+                <h1 id="hero-title" >Loading...</h1>
+            </div>
+    
+            <div class="row content" id="middle-content">
+                <div class="col-12 text-center mt-5">
+                    <!-- <img src="load.gif" alt="Load"> -->
+                </div>
+            </div>
+    
+        </section>
+    </body>
+</html>

@@ -235,9 +235,13 @@ section.web-middle {
     box-sizing: border-box;
 }
 
+section.web-middle h5{
+    color: #616161;
+}
+
 .ctrl{
     padding-top: 15px;
-
+    display: inline; 
 }
 
 
@@ -253,6 +257,7 @@ section.web-middle {
 
         color: #333;
     }
+
 
     .row-season{
         text-align: center;

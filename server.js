@@ -1,9 +1,15 @@
-/* DECLARE MODULES --------------------------- */
+/* DECLARE MODULES and CONSTANTS ------------- */
 const express = require('express')
       b_parse = require('body-parser')
       path    = require('path');
 
 const app     = express();
+
+app.use('/css', express.static('css'));
+app.use('/images', express.static('images'));
+app.use(b_parse.urlencoded({ extended: true })); 
+
+var port = process.env.PORT || 3000;
 
 /* CONNECT TO MONGO -------------------------- */
 const mongo_uri = "mongodb+srv://dbUser:dbUserPassword@comp-20.yu1ib.mongodb.net/aniGen?retryWrites=true&w=majority";
@@ -16,7 +22,7 @@ MongoClient.connect(mongo_uri, {
         console.log("Connected to Mongodb!");
 
         /* CRUD HANDLER ---------------------- */
-        app.listen(3000, function() {
+        app.listen(port, function() {
             console.log('Listening on 3000');
         })
 
@@ -25,12 +31,12 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            // Create document including randomly generated key
+            // Create document including username:password
             console.log(req.body["username"])
-            res.send("<p>Key</p>")
-            // Write key to page along with note
 
             // Add document to MongoDB
+
+            // Respond with home page and a registration success alert
         })
     })
     .catch(console.error)

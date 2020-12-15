@@ -28,10 +28,11 @@ MongoClient.connect(mongo_uri, {
 
         app.get('/', function(req, res) {
             res.sendFile(path.resolve("server-main.html"));
-            res.send(req.body);
         })
 
-        //app.get('/register', function())
+        app.post('/register', function(req, res) {
+            res.send(req.body);
+        })
 
         // app.post('', function(req, res) {
         //     // Create document including username:password

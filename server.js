@@ -80,13 +80,13 @@ MongoClient.connect(mongo_uri, {
             // Build query with request 
             const lists   = database.collection("aniLists");
 
-            //var rkey      = req.body["user-key"];
+            var rkey      = req.body["user-key"];
 
             //const query   = { key : rkey }
 
             //const list = lists.findOne(query);
 
-            res.send(req.body);
+            res.send(rkey);
         })
     })
     .catch(console.error)

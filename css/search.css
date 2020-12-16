@@ -476,3 +476,33 @@ section.web-right {
     section.web-middle .box-input {
         display: none;
     }
+
+/* Small screens */
+@media only screen and (max-width: 800px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-ul {
+        flex-direction: row;
+        width:100%;
+
+    }
+  
+    .nav-item {
+
+        width: 30%;
+        justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  

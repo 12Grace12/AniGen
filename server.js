@@ -83,9 +83,10 @@ MongoClient.connect(mongo_uri, {
             const query  = { key: rkey };
 
             var file;
+            file += head;
+
             // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
-                file += head;
                 var ani_list = document.animes
                 ani_list.forEach(anime => {
                     file +=`<div class="other">`
@@ -93,10 +94,9 @@ MongoClient.connect(mongo_uri, {
                     file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
                     file += "</div>"
                 })
-                file += button_home;
-                file += "</body></html>"
             })
 
+            file += "</body></html>"
             res.send(file);
             
         })

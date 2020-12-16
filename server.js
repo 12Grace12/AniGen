@@ -85,16 +85,12 @@ MongoClient.connect(mongo_uri, {
 
             // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
-                var ani_list = document.animes
+                var ani_listing = document.animes[0]
                 console.log("Here")
-                
-                for (const anime of ani_list) {
-                    console.log(anime);
-                    file +="<div class=\"other\">"
-                    file += "<p>Title: " + anime["title"] + "</p>"
-                    file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
-                    file += "</div>"
-                }
+                file +="<div class=\"other\">"
+                file += "<p>Title: " + ani_listing["title"] + "</p>"
+                file += "<p>Genres: " + ani_listing["genre"][0] + ", " + ani_listing["genre"][1] + "</p>"
+                file += "</div>"
             })
 
             file += "</body></html>"

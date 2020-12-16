@@ -94,10 +94,8 @@ MongoClient.connect(mongo_uri, {
                     file += "</div></div>"
                 }
                 file += "</body></html>"
-            })
-
-            res.send(file);
- 
+                res.send(file);
+            });
         })
 
         app.post('/add', function(req, res) {

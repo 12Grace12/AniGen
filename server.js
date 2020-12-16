@@ -12,11 +12,6 @@ app.use(b_parse.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 3000;
 
-app.use(function(req, res){
-    res.header("Access-Control-Allow-Origins", '*');
-    
-}
-
 const head = `
 <html>
     <head>
@@ -86,9 +81,23 @@ MongoClient.connect(mongo_uri, {
 
             const query  = { key: rkey };
 
+            var file;
+            file += head;
+
+            // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
-                res.send(document.key);
-            });
+                var ani_list = document.animes
+                ani_list.forEach(anime => {
+                    file +=`<div class="other">`
+                    file += "<p>Title: " + anime["title"] + "</p>"
+                    file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
+                    file += "</div>"
+                })
+            })
+
+            file += "</body></html>"
+            res.send(file);
+            
         })
 
         app.post('/add', function(req, res) {

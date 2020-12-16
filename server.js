@@ -33,9 +33,12 @@ MongoClient.connect(mongo_uri, {
 
         app.post('/register', function(req, res) {
             const users = database.collection("users");
+
             var mail    = req.body["email"];
             var rkey    = rand.generate(7);
+            
             const doc   = { email : mail, key : rkey };
+            
             users.insertOne(doc);
             
         })

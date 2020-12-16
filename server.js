@@ -78,15 +78,15 @@ MongoClient.connect(mongo_uri, {
 
         app.post('/user-lists', function(req, res) {
             // Build query with request 
-            const users = database.collection("users");
+            const users  = database.collection("users");
 
-            var rkey      = req.body["user-key"];
+            var rkey     = req.body["user-key"];
 
-            const query   = { key : "iHClSo4" };
+            const query  = { key: "iHClSo4" };
 
-            const list    = users.findOne(query);
+            const cursor = users.find(query);
 
-            res.send(list.key);
+            res.send(cursor);
         })
 
         app.post('/add', function(req, res) {

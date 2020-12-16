@@ -50,6 +50,7 @@ body{
     margin-left: 9.5em;
     margin-right: 5em;
     padding-top: 5em; 
+    padding-bottom: 5em;
 }
 
 
@@ -67,14 +68,16 @@ body{
 .searchtop h3{
     line-height: 100%;
     font-weight: bold;
-    padding-bottom: 20px;
+
 }
 
 
 .searchbar{
 
-    padding: 20px 0px;
+    padding-top: 20px;
 }
+
+
 
 .searchbar select{
     display: block;

@@ -29,8 +29,6 @@ const head = `
         </style>
     </head>
     <body>
-        <div class="other">
-            <div class="top">
 `
 
 const button_home = `<a href="https://12grace12.github.io/AniGen/index.html" class="findbutton">Home</a> `
@@ -66,6 +64,7 @@ MongoClient.connect(mongo_uri, {
 
             // Print key to user with note and link back to home 
             var file = head;
+            file    += "<div class=\"other\"><div class=\"top\">"
             file    += "<p>Your key is: <b>" + rkey + "</b></p><br>"
             file    += "<p>Don't lose this key!</p>"
             file    += button_home;
@@ -86,18 +85,18 @@ MongoClient.connect(mongo_uri, {
 
             // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
-                var ani_list = document.animes
-                ani_list.forEach(anime => {
-                    file +=`<div class="other">`
-                    file += "<p>Title: " + anime["title"] + "</p>"
-                    file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
-                    file += "</div>"
-                })
+                for (var i = 0; i < document.animes.length; i++) {  
+                    file += "<div class=\"other\"><div class=\"top\">";
+                    file += "<p><b>Title</b>: " + document.animes[i]["title"] + "</p>"
+                    file += "<p><b>Genre(s)</b>: " + document.animes[i]["genre"] + "</p>"
+                    file += "</div></div>"
+                    if ( i == document.animes.length-1 ) {
+                        file    += button_home;
+                        file += "</body></html>"
+                        res.send(file);
+                    }
+                }
             })
-
-            file += "</body></html>"
-            res.send(file);
-            
         })
 
         app.post('/add', function(req, res) {

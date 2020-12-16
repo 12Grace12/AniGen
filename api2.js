@@ -273,16 +273,23 @@ $('#body').on('click', '#detail-anime',function() {
     let id = $(this).data('id');
 
     $.getJSON('https://api.jikan.moe/v3/anime/'+id, function(data) {
-        console.log("hi");
-        var xmlhttp = new XMLHttpRequest();
-        console.log("bye");
-        xmlhttp.open("POST", "https://animegen.herokuapp.com/add", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        dobj = JSON.stringify((data));
-        // console.log(data);
-        // console.log(JSON.stringify((data)));
-        xmlhttp.send(dobj);
-        console.log("data has sent!");
+        
+
+        if (document.getElementById('save-add').addEventListener('click', function(){
+            console.log(JSON.stringify((data)));
+            console.log("hi");
+            var xmlhttp = new XMLHttpRequest();
+            console.log("bye");
+            xmlhttp.open("POST", "https://animegen.herokuapp.com/add", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            dobj = JSON.stringify((data));
+            // console.log(data);
+            
+            xmlhttp.send(JSON.stringify((data)));
+            console.log("data has sent!");
+
+        }))
+        
 
         if( data.episodes == null ) {
             data.episodes = 'unknow';

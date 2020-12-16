@@ -82,7 +82,7 @@ MongoClient.connect(mongo_uri, {
 
             const query   = { key : rkey }
 
-            const u_list  = database.collection("aniLists").findOne(query);
+            const u_list  = database.collection("users").findOne(query);
 
             res.send(u_list);
         })

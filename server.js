@@ -81,9 +81,9 @@ MongoClient.connect(mongo_uri, {
 
             const query  = { key: rkey };
 
-            const list = users.findOne(query);
-
-            res.json(list);
+            users.findOne({key: rkey}, function(err, document) {
+                console.log(document.key);
+            });
         })
 
         app.post('/add', function(req, res) {

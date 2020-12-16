@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Anigen</title>
+    <title>AniGen</title>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,8 +68,14 @@
                             <option value="sports" id="30">Sports</option>
                             <option value="school" id="23">School</option>
                         </select>
-                        <button type="submit" class="btn btn-primary" id="pick_genre" value="Generate" >Generate</button>
-                    </form>
+                        <div class="sub2">
+                        <button type="submit" class="search-sub" id="pick_genre" onclick="showSave()" value="Generate" >Generate</button>
+                        
+                        <input type="text" placeholder="Enter your key..." class="search-key" id="key" style="display:none; margin-top:10px;">
+                        <button type="button" class="search-sub" id="add" value="Add" style="display:none">Save</button>
+                      </div>
+                      </form>
+                      <br>
                     <div class="row content" id="middle-content">
                         <div class="col-12 text-center mt-5">
                            
@@ -78,7 +84,15 @@
 
                                         <!-- Modal Message -->
                     
+                    <script language="javascript">
+                      function showSave(){
+                        var t_in = document.getElementsByClassName("search-key")[0];
+                        var b_in = document.getElementsByClassName("search-sub")[1];
+                        t_in.style.display = "block";
+                        b_in.style.display = "block";
+                      }
 
+                    </script>
                     <script language = "javascript">
 
                     

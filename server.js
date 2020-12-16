@@ -54,7 +54,6 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            console.log(req);
             // Add user and key to Mongo
             var mail    = req.body["email"];
             var rkey    = rand.generate(7);
@@ -101,13 +100,8 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/add', function(req, res) {
-            console.log(res);
             var file = "Response received from server!";
-            for (let k in req.body) {
-                file += "\n"
-                file += k + ' is ' + req.body[k]
-            }
-            res.set('Content-Type', 'text/html');
+            file    += "\n" + req.body;
 
             res.send(file);
         })

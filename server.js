@@ -95,9 +95,9 @@ MongoClient.connect(mongo_uri, {
                 }
                 file += button_home;
                 file += "</body></html>"
-
-                res.send(file);
             });
+
+            res.send(file);
         })
 
         app.post('/add', function(req, res) {

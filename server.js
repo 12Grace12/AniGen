@@ -12,11 +12,6 @@ app.use(b_parse.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 3000;
 
-app.use(function(req, res){
-    res.header("Access-Control-Allow-Origins", '*');
-    
-}
-
 const head = `
 <html>
     <head>

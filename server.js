@@ -91,6 +91,7 @@ MongoClient.connect(mongo_uri, {
                     file += "<p><b>Genre(s)</b>: " + document.animes[i]["genre"] + "</p>"
                     file += "</div></div>"
                     if ( i == document.animes.length-1 ) {
+                        file    += button_home;
                         file += "</body></html>"
                         res.send(file);
                     }

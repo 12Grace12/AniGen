@@ -87,6 +87,7 @@ MongoClient.connect(mongo_uri, {
             users.findOne({key: rkey}, function(err, document) {
                 var ani_list = document.animes
                 ani_list.forEach(anime => {
+                    console.log(anime);
                     file +="<div class=\"other\">"
                     file += "<p>Title: " + anime["title"] + "</p>"
                     file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"

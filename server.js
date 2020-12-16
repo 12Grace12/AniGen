@@ -12,7 +12,7 @@ app.use(b_parse.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 3000;
 
-var file = `
+const head = `
 <html>
     <head>
         <meta charset="utf-8">
@@ -33,7 +33,7 @@ var file = `
             <div class="top">
 `
 
-var button_home = `<a href="./index.html" class="findbutton">Home</a> `
+const button_home = `<a href="https://12grace12.github.io/AniGen/index.html" class="findbutton">Home</a> `
 
 /* CONNECT TO MONGO -------------------------- */
 const mongo_uri = "mongodb+srv://dbUser:dbUserPassword@comp-20.yu1ib.mongodb.net/aniGen?retryWrites=true&w=majority";
@@ -66,6 +66,7 @@ MongoClient.connect(mongo_uri, {
             users.insertOne(doc);
 
             // Print key to user with note and link back to home 
+            var file = head;
             file += "<p>Your key is: <b>" + rkey + "</b></p><br>"
             file += "<p>Don't lose this key!</p>"
             file += button_home;
@@ -76,6 +77,7 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/user-lists', function(req, res) {
+            var rkey = req.body["user-key"];
             res.send(req.body);
         })
     })

@@ -84,11 +84,9 @@ MongoClient.connect(mongo_uri, {
 
             const query   = { key : rkey }
 
-            res.send(query);
+            const u_list  = lists.findOne(query);
 
-            //const u_list  = lists.findOne(query);
-
-            //res.send(u_list);
+            res.send(u_list);
         })
     })
     .catch(console.error)

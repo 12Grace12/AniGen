@@ -322,8 +322,17 @@ $('#body').on('click', '#detail-anime',function() {
                  </div>
             </div>
         `);
+        console.log("hi");
+        var xmlhttp = new XMLHttpRequest();
+        console.log("bye");
+        xmlhttp.open("POST", "https://animegen.herokuapp.com/add", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(data);
+        console.log("data has sent!");
+
 
     });
+
 
 });
 

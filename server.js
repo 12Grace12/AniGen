@@ -87,7 +87,10 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/add', function(req, res) {
-            //blah
+            var file = "Response received from server!";
+            file    += "\n" + req.body;
+
+            res.send(file);
         })
     })
     .catch(console.error)

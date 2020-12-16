@@ -33,6 +33,8 @@ var file = `
             <div class="top">
 `
 
+var button_home = `<a href="./index.html" class="findbutton">Home</a> `
+
 /* CONNECT TO MONGO -------------------------- */
 const mongo_uri = "mongodb+srv://dbUser:dbUserPassword@comp-20.yu1ib.mongodb.net/aniGen?retryWrites=true&w=majority";
 
@@ -63,9 +65,10 @@ MongoClient.connect(mongo_uri, {
 
             users.insertOne(doc);
 
-            // Print key to user with note and linke back to home 
-            file += "<p>Your key is: " + rkey + "</p><br>"
+            // Print key to user with note and link back to home 
+            file += "<p>Your key is: <b>" + rkey + "</b></p><br>"
             file += "<p>Don't lose this key!</p>"
+            file += button_home;
             file += "</div></div></body></html>"
 
             res.send(file);

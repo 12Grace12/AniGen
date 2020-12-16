@@ -81,7 +81,6 @@ MongoClient.connect(mongo_uri, {
             const lists   = database.collection("aniLists");
 
             var rkey      = req.body["user-key"];
-            alert(rkey);
 
             const query   = { key : rkey }
 

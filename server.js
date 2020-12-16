@@ -81,13 +81,11 @@ MongoClient.connect(mongo_uri, {
             const lists   = database.collection("aniLists");
 
             var rkey      = req.body["user-key"];
+            alert(rkey);
 
             const query   = { key : rkey }
-            const options = {
-                projection: { _id : 0}
-            };
 
-            const list = lists.findOne(query, options);
+            const list = lists.findOne(query);
 
             res.send(list);
         })

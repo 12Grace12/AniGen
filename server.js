@@ -85,19 +85,19 @@ MongoClient.connect(mongo_uri, {
             var file;
             // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
-                //file += head;
-                var ani_list = document.key + " and " + document.animes[0]["title"];
-                res.send(ani_list);
-                // for (anime in ani_list) {
-                //     file +=`<div class="other">`
-                //     file += "<p>Title: " + anime["title"] + "</p>"
-                //     file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
-                //     file += "</div>"
-                // }
-                //file += button_home;
-                //file += "</body></html>"
+                file += head;
+                var ani_list = document.animes
+                ani_list.forEach(anime => {
+                    file +=`<div class="other">`
+                    file += "<p>Title: " + anime["title"] + "</p>"
+                    file += "<p>Genres: " + anime["genre"][0] + ", " + anime["genre"][1] + "</p>"
+                    file += "</div>"
+                })
+                file += button_home;
+                file += "</body></html>"
             })
 
+            res.send(file);
             
         })
 

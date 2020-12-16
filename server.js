@@ -86,10 +86,10 @@ MongoClient.connect(mongo_uri, {
             // Locate user based on query
             users.findOne({key: rkey}, function(err, document) {
                 //var ani_listing = document.animes[0]["title"]
-                file +="<div class=\"other\">"
+                file +="<div class=\"other\"><div class=\"top\">";
                 file += "<p>Title: " + document.animes[0]["title"] + "</p>"
                 file += "<p>Genres: " + document.animes[0]["genre"][0] + ", " + document.animes[0]["genre"][1] + "</p>"
-                file += "</div>"
+                file += "</div></div>"
                 file += "</body></html>"
                 res.send(file);
             })

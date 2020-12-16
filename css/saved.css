@@ -46,3 +46,7 @@ form input[type=submit]{
     color: white;
 
 }
+
+label .login-label{
+    font-size: 20px;
+}

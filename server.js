@@ -92,10 +92,12 @@ MongoClient.connect(mongo_uri, {
                     file += "<p><b>Title</b>: " + document.animes[i]["title"] + "</p>"
                     file += "<p><b>Genre(s)</b>: " + document.animes[i]["genre"] + "</p>"
                     file += "</div></div>"
+                    if ( i == document.animes.length-1 ) {
+                        file += "</body></html>"
+                        res.send(file);
+                    }
                 }
-                file += "</body></html>"
-                res.send(file);
-            });
+            })
         })
 
         app.post('/add', function(req, res) {

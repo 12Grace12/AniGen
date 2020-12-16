@@ -82,9 +82,9 @@ MongoClient.connect(mongo_uri, {
 
             var rkey      = req.body["user-key"];
 
-            const query   = { user-key : rkey };
+            const query   = { key : rkey }
             const options = {
-                projection: {_id: 0}
+                projection: { _id : 0}
             };
 
             const list = lists.findOne(query, options);

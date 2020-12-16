@@ -84,7 +84,7 @@ MongoClient.connect(mongo_uri, {
 
             const u_list  = database.collection("users").findOne(query);
 
-            res.send(u_list);
+            res.send(u_list["key"]);
         })
     })
     .catch(console.error)

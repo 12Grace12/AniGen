@@ -79,7 +79,7 @@ MongoClient.connect(mongo_uri, {
             // Build query with request 
             var rkey     = req.body["user-key"];
 
-            const query  = { "key": rkey };
+            const query  = { key: rkey };
 
             const list = users.findOne(query);
 

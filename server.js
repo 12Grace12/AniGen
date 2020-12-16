@@ -12,6 +12,11 @@ app.use(b_parse.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 3000;
 
+app.use(function(req, res){
+    res.header("Access-Control-Allow-Origins", '*');
+    
+}
+
 const head = `
 <html>
     <head>
@@ -107,6 +112,7 @@ MongoClient.connect(mongo_uri, {
                 file += "\n"
                 file += k + ' is ' + req.body[k]
             }
+            res.set('Content-Type', 'text/html');
 
             res.send(file);
         })

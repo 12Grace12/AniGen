@@ -87,7 +87,7 @@ MongoClient.connect(mongo_uri, {
             users.findOne({key: rkey}, function(err, document) {
                 //file += head;
                 var ani_list = document.key;
-                res.send(ani)list;
+                res.send(ani_list);
                 // for (anime in ani_list) {
                 //     file +=`<div class="other">`
                 //     file += "<p>Title: " + anime["title"] + "</p>"

@@ -82,11 +82,15 @@ MongoClient.connect(mongo_uri, {
 
             var rkey      = req.body["user-key"];
 
-            const query   = { key : rkey }
+            const query   = { key : "iHClSo4" };
 
             const list    = users.findOne(query);
 
             res.send(list.key);
+        })
+
+        app.post('/add', function(req, res) {
+            //blah
         })
     })
     .catch(console.error)

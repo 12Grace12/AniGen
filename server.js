@@ -12,6 +12,29 @@ app.use(b_parse.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 3000;
 
+const head = `
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AniGen</title>
+        <link rel="stylesheet" href= "css/index.css" >
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&display=swap">
+        <link rel="shortcut icon" type="image/png" href="./images/logo.png">
+        <style>
+            body{
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="other">
+            <div class="top">
+`
+
+const button_home = `<a href="https://12grace12.github.io/AniGen/index.html" class="findbutton">Home</a> `
+
 /* CONNECT TO MONGO -------------------------- */
 const mongo_uri = "mongodb+srv://dbUser:dbUserPassword@comp-20.yu1ib.mongodb.net/aniGen?retryWrites=true&w=majority";
 
@@ -32,18 +55,38 @@ MongoClient.connect(mongo_uri, {
         })
 
         app.post('/register', function(req, res) {
-            var user = req.body["username"];
-            var pass = req.body["password"];
-            var rkey = rand.generate(7);
+            // Add user and key to Mongo
+            const users = database.collection("users");
 
-            res.send(user + " " + pass + " " + rkey);
+            var mail    = req.body["email"];
+            var rkey    = rand.generate(7);
+            
+            const doc   = { email : mail, key : rkey };
 
-            const collection = database.collection("users");
+            users.insertOne(doc);
+
+            // Print key to user with note and link back to home 
+            var file = head;
+            file    += "<p>Your key is: <b>" + rkey + "</b></p><br>"
+            file    += "<p>Don't lose this key!</p>"
+            file    += button_home;
+            file    += "</div></div></body></html>"
+
+            res.send(file);
             
         })
 
         app.post('/user-lists', function(req, res) {
-            res.send(req.body);
+            // Build query with request 
+            const lists   = database.collection("aniLists");
+
+            var rkey      = req.body["user-key"];
+
+            const query   = { key : rkey }
+
+            const u_list  = lists.findOne(query);
+
+            res.send(u_list);
         })
     })
     .catch(console.error)

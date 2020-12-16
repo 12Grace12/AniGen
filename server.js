@@ -78,16 +78,11 @@ MongoClient.connect(mongo_uri, {
 
         app.post('/user-lists', function(req, res) {
             // Build query with request 
-            const lists   = database.collection("aniLists");
-
             var rkey      = req.body["user-key"];
 
             const query   = { key : rkey }
-            const optns   = { 
-                projection : { _id: 0, key: 1}
-            }
 
-            const u_list  = lists.findOne(query, optns);
+            const u_list  = database.collection("aniLists").findOne(query, optns);
 
             res.send(u_list);
         })

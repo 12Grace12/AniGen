@@ -15,6 +15,7 @@ function animeSeason(season) {
     $('#middle-content').empty();
 
     $.getJSON('https://api.jikan.moe/v3/season/'+ year +'/'+ season, function(data) {
+        console.log(data);
         
         let result = data.anime;
 
@@ -265,6 +266,8 @@ function animeSearch() {
 
 }
 
+var aniJSON = null;
+
 // Detail Anime
 $('#body').on('click', '#detail-anime',function() {
 
@@ -273,22 +276,22 @@ $('#body').on('click', '#detail-anime',function() {
     let id = $(this).data('id');
 
     $.getJSON('https://api.jikan.moe/v3/anime/'+id, function(data) {
-        
+        aniJSON = data;
 
-        if (document.getElementById('save-add').addEventListener('click', function(){
-            console.log(JSON.stringify((data)));
-            console.log("hi");
-            var xmlhttp = new XMLHttpRequest();
-            console.log("bye");
-            xmlhttp.open("POST", "https://animegen.herokuapp.com/add", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            dobj = JSON.stringify((data));
-            // console.log(data);
+        // if (document.getElementById('save-add').addEventListener('click', function(){
+        //     console.log(JSON.stringify((data)));
+        //     console.log("hi");
+        //     var xmlhttp = new XMLHttpRequest();
+        //     console.log("bye");
+        //     xmlhttp.open("POST", "https://animegen.herokuapp.com/add", true);
+        //     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //     dobj = data;
+        //     // console.log(data);
             
-            xmlhttp.send(JSON.stringify((data)));
-            console.log("data has sent!");
+        //     xmlhttp.send(data);
+        //     console.log("data has sent!");
 
-        }))
+        // }))
         
 
         if( data.episodes == null ) {

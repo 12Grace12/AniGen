@@ -90,7 +90,10 @@ MongoClient.connect(mongo_uri, {
         app.post('/add', function(req, res) {
             console.log(res);
             var file = "Response received from server!";
-            file    += "\n" + req.body;
+            for (let k in req.body) {
+                file += "\n"
+                file += k + ' is ' + req.body[k]
+            }
 
             res.send(file);
         })

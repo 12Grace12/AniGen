@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/search.css">
@@ -44,31 +45,115 @@
 
   
 
-    <div class="other">
-          <div class="searchtop">
-            <h3>Choose a genre, and AniGen will generate one for you!</h3>
-            <div class="searchbar-container">
-                <div class="searchbar">
-                    <select name="genre" class="genre">
-                        <option value="null">Choose a genre...</option>
-                        <option value="action" id="1">Action</option>
-                        <option value="adventure" id="2">Adventure</option>
-                        <option value="comedy" id="4">Comedy</option>
-                        <option value="fantasy" id="10">Fantasy</option>
-                        <option value="game" id="11">Game</option>
-                        <option value="horror" id="14">Horror</option>
-                        <option value="romance" id="22">Romance</option>
-                        <option value="sports" id="30">Sports</option>
-                        <option value="school" id="23">School</option>
-                    </select>
-                </div>
-                <br>
-                <!--edit this later to add js to pop out results-->
-                <div>
-                    <a href="/somejsfile" class="search-sub" onclick="function()">Submit</a>
+        <div class="other">
+            <div class="searchtop">
+                <h3>Choose a genre, and AniGen will generate one for you!</h3>
+                <div class="searchbar-container">
+                    <div class="searchbar">
+                    <form onsubmit = "return false"> Sort by Genre Type: 
+                        <select name="genre" class="genre" id="choices">
+                            <option value="null">Choose a genre...</option>
+                            <option value="action" id="1">Action</option>
+                            <option value="adventure" id="2">Adventure</option>
+                            <option value="comedy" id="4">Comedy</option>
+                            <option value="fantasy" id="10">Fantasy</option>
+                            <option value="game" id="11">Game</option>
+                            <option value="horror" id="14">Horror</option>
+                            <option value="romance" id="22">Romance</option>
+                            <option value="sports" id="30">Sports</option>
+                            <option value="school" id="23">School</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" id="pick_genre" value="Filter" >Filter</button>
+                    </form>
+
+                    <script language = "javascript">
+
+                    
+                        $('#pick_genre').on('click', function() {
+
+                            var options = document.getElementsByClassName('genre')[0].options;
+                            var id      = options[options.selectedIndex].id;
+                            console.log(id);
+            
+                            if($("#choices").prop('selectedIndex') == 0)
+                            {
+                                alert("Please choose a genre!");
+                            }
+                            
+                            else{
+                                animeGenre(id);
+                            }
+                                
+                        });
+
+                        function random_item(items){
+                            return items[Math.floor(Math.random()*items.length)];
+                         }
+                        
+                        function animeGenre(id) {
+                        $('#middle-content').empty();
+                        $.getJSON('https://api.jikan.moe/v3/genre/anime/'+ id, function(data) {
+                            let result = data.anime;
+                           
+                            var ani = [];
+
+                            $.each(result, function(i, data) {
+                                
+                                ani.push(data);
+                    
+                                if( i >= 32 ) {
+                                    return;
+                                }
+                                
+                            });
+
+
+                            x = random_item(ani);
+                            $('#middle-content').append(`
+                                <div class="col-md-3 col-6 mb-4">
+                                    <div id="detail-anime" data-id="`+ x.mal_id +`" class="img-poster" data-toggle="modal" data-target=".bd-example-modal-lg" class="img-poster" style="
+                                        background-image: url(`+ x.image_url +`);
+                                        background-position: center;
+                                        background-size: cover;
+                                    ">
+                                    </div>
+                                    <h3>`+ x.title +`</h3>
+                                </div>
+                                `);
+                            
+
+
+                            console.log(ani)
+                            console.log(x)
+
+                        });
+                    }
+
+
+                       
+
+
+
+
+
+
+
+                    </script>
+                    
+
+                    
+            
+
+
+
+
+                    </div>
+                    <br>
+                   
+                    
                 </div>
             </div>
-          </div>
-    </div>
+        </div>
+          
     </body>
 </html>

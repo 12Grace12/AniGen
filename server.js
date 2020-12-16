@@ -67,18 +67,29 @@ MongoClient.connect(mongo_uri, {
 
             // Print key to user with note and link back to home 
             var file = head;
-            file += "<p>Your key is: <b>" + rkey + "</b></p><br>"
-            file += "<p>Don't lose this key!</p>"
-            file += button_home;
-            file += "</div></div></body></html>"
+            file    += "<p>Your key is: <b>" + rkey + "</b></p><br>"
+            file    += "<p>Don't lose this key!</p>"
+            file    += button_home;
+            file    += "</div></div></body></html>"
 
             res.send(file);
             
         })
 
         app.post('/user-lists', function(req, res) {
-            var rkey = req.body["user-key"];
-            res.send(req.body);
+            // Build query with request 
+            const lists   = database.collection("aniLists");
+
+            var rkey      = req.body["user-key"];
+
+            const query   = { user-key : rkey };
+            const options = {
+                projection: {_id: 0}
+            };
+
+            const list = lists.findOne(query, options);
+
+            res.send(list);
         })
     })
     .catch(console.error)

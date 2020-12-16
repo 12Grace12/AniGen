@@ -94,6 +94,7 @@ MongoClient.connect(mongo_uri, {
                 file += "\n"
                 file += k + ' is ' + req.body[k]
             }
+            res.set('Content-Type', 'text/html');
 
             res.send(file);
         })

@@ -86,7 +86,7 @@ MongoClient.connect(mongo_uri, {
 
             const cursor = users.find(query);
 
-            res.send(cursor.toArray());
+            res.send(cursor.toArray()[0]);
         })
 
         app.post('/add', function(req, res) {

@@ -61,10 +61,10 @@ MongoClient.connect(mongo_uri, {
             users.insertOne(doc);
 
             // Print key to user with note and linke back to home 
-            file += "<body>"
+            file += "<body><div class=\"savedtop\">"
             file += "<p>Your key is: " + rkey + "</p><br>"
             file += "<p>Don't lose this key!</p>"
-            file += "</body></html>"
+            file += "</div></body></html>"
 
             res.send(file);
             

@@ -11,6 +11,7 @@ app.use('/images', express.static('images'));
 app.use(b_parse.urlencoded({ extended: true })); 
 
 var port = process.env.PORT || 3000;
+Access-Control-Allow-Origin: *
 
 const head = `
 <html>

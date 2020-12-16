@@ -30,6 +30,7 @@ var file = `
     </head>
     <body>
         <div class="other">
+            <div class="top">
 `
 
 /* CONNECT TO MONGO -------------------------- */
@@ -65,7 +66,7 @@ MongoClient.connect(mongo_uri, {
             // Print key to user with note and linke back to home 
             file += "<p>Your key is: " + rkey + "</p><br>"
             file += "<p>Don't lose this key!</p>"
-            file += "</div></body></html>"
+            file += "</div></div></body></html>"
 
             res.send(file);
             

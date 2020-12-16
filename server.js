@@ -82,7 +82,7 @@ MongoClient.connect(mongo_uri, {
             const query  = { key: rkey };
 
             users.findOne({key: rkey}, function(err, document) {
-                res.send(document);
+                res.send(document.key);
             });
         })
 

@@ -56,12 +56,24 @@ body{
 .searchtop{
     margin: 0px 100px;
     padding: 1.5em 4em;
-    font-size: 25px;
+
     border: 0.02em solid rgb(220, 220, 220);
     background-color: rgba(255,255,255,0.5);
     border-radius: 4em;
     box-sizing: border-box;
     
+}
+
+.searchtop h3{
+    line-height: 100%;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+
+.searchbar{
+
+    padding: 20px 0px;
 }
 
 .searchbar select{
@@ -85,6 +97,10 @@ body{
     background-color: #59a891;
     color: white;
 
+}
+
+.search-sub-container{
+    padding-bottom: 20px;
 }
 
 /*other stuff below*/

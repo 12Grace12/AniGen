@@ -83,7 +83,7 @@ MongoClient.connect(mongo_uri, {
 
             const list = users.findOne(query);
 
-            res.send(list);
+            res.json(list);
         })
 
         app.post('/add', function(req, res) {
